@@ -1,10 +1,10 @@
-from flask import Flask, jsonify, request, url_for, redirect, make_response
+from flask import Flask, jsonify, request, url_for, redirect, make_response, render_template
 
 app = Flask(__name__)
 
 
 @app.route('/<name>/<int:id>/', methods=['GET', 'POST'])
-def main(name, id):
+def main_x(name, id):
     print(request.data)
     return f'hello {name}, com o id {id}', 200
 
@@ -36,7 +36,21 @@ def response_data():
     resp = make_response(jsonify(data=request.form), 201)
     resp.headers['Couse-Powered-by'] = 'School of net Erickson'
     return resp
+
+
 # app.add_url_rule('/', 'hello', main)
+
+@app.route('/form', methods=['GET', 'POST'])
+def form():
+    if request.method == 'GET':
+        return render_template('form.html')
+    elif request.method == 'POST':
+        return redirect(url_for('result', name=request.form['name']))
+
+
+@app.route('/result/<name>', methods=['GET'])
+def result(name):
+    return render_template('index.html', name=name)
 
 
 if __name__ == '__main__':
