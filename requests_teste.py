@@ -4,7 +4,11 @@ import requests
 
 # get = requests.get('http://127.0.0.1:8000/')
 
-post = requests.post('http://127.0.0.1:8000/request/', data={"person": "Erickson"}).json()
+# request_data
+# post = requests.post('http://127.0.0.1:8000/request/', data={"person": "Erickson"}).json()
 
-print(post)
+# response_data
+post = requests.post('http://127.0.0.1:8000/response/', data={"person": "Erickson"})
+print(post.json())
+print(post.headers)
 

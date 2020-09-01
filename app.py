@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, url_for, redirect, make_response
 
 app = Flask(__name__)
 
@@ -16,9 +16,26 @@ def request_data():
     # print(request.headers)
     print(request.path)
     print(request.data)
-    print(request.args.get('person'))
-    return jsonify({'message': 'recebido'})
+    print(request.form['person'])
+    return jsonify({'message': f'Nome recebido {request.form["person"]}'})
 
+
+@app.route('/redirected', methods=['GET'])
+def redirected():
+    data = {
+        'message': 'Redirect',
+        'username': 'Erickson',
+        'stacks': ['python', 'django', 'flask']
+    }
+    return jsonify(user=data)
+
+
+@app.route('/response/', methods=['POST'])
+def response_data():
+    # return redirect(url_for('redirected'))
+    resp = make_response(jsonify(data=request.form), 201)
+    resp.headers['Couse-Powered-by'] = 'School of net Erickson'
+    return resp
 # app.add_url_rule('/', 'hello', main)
 
 
