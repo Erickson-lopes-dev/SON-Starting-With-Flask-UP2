@@ -1,4 +1,26 @@
+html {
+    margin: 0;
+    padding: 0;
+    backgroud-origin: border-box;
+}
+
 body {
-    backgroud: black;
-    color:white;
+    backgroud: #eeeeee;
+    margin: 0;
+    padding: 0;
+    backgroud-origin: border-box;
+}
+
+.header {
+    min-height: 55px;
+    wight: 100%;
+    position: relative;
+    backgroud: #fafafa;
+}
+
+.footer {
+    min-height: 55px;
+    wight: 100%;
+    position: relative;
+    backgroud: #fafafa;
 }

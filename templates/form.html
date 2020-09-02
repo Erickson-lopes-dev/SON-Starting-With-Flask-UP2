@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+
+{% block main %}
 <form method="post" action="/form">
     <h1>formulario</h1>
     <input type="text" name="name">
     <input type="text" name="age">
     <button type="submit">click</button>
 </form>
-</body>
-</html>
+{% endblock %}
