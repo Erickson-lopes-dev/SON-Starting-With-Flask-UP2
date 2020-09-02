@@ -1,4 +1,3 @@
-import os
 from app2.config import app, db
 from app2.posts.index import posts
 

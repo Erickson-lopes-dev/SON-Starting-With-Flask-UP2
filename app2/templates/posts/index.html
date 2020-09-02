@@ -1,0 +1,26 @@
+
+<h1></h1>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for post in posts %}
+        <tr>
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.body }}</td>
+            <td>
+                <a href="{{ url_for('posts.remove', id=post.id) }}?_method=delete">
+                    Delete
+                </a>
+            </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
